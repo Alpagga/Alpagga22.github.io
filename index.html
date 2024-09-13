@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random HTML Loader</title>
+    <style>
+        #content {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 80%;
+            margin: auto;
+            min-height: 200px;
+        }
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content">
+        <!-- Random HTML page will be loaded here -->
+    </div>
+    <button id="load-random-page">Load Random Page</button>
+
+    <script>
+        // List of HTML files in the 'pages' directory
+        const htmlPages = [
+            'Processing/Page1/page1.html',
+            'Processing/Page2/page2.html',
+            'Processing/Page3/page3.html'
+        ];
+
+        // Function to load random page
+        function loadRandomPage() {
+            // Pick a random page from the list
+            const randomPage = htmlPages[Math.floor(Math.random() * htmlPages.length)];
+            
+            // Fetch the content of the random HTML page
+            fetch(randomPage)
+                .then(response => response.text())
+                .then(htmlContent => {
+                    // Inject the content into the 'content' div
+                    document.getElementById('content').innerHTML = htmlContent;
+                })
+                .catch(error => {
+                    console.error('Error loading page:', error);
+                });
+        }
+
+        // Event listener for button click
+        document.getElementById('load-random-page').addEventListener('click', loadRandomPage);
+
+        // Load an initial random page when the page loads
+        window.onload = loadRandomPage;
+    </script>
+
+</body>
+</html>
