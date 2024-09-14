@@ -29,9 +29,9 @@ function sketch1(p) {
         y += 1;
 
         // Reset the circle position after it moves off the right side
-        if (x > p.windowWidth + 150) {
-            x = -50;
+        if (x > p.windowWidth + y) {
             y = 50;
+            x = -y;
         }
 
     };

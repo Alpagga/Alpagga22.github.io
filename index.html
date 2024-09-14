@@ -12,13 +12,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <button id="change-sketch">Change Sketch</button>
-
     <!-- Placeholder for the p5.js sketches -->
     <div id="sketch-container"></div>
     
     <!-- Load your sketches dynamically -->
     <script src="sketchLoader.js"></script>
+    
+    <script>
+        document.onkeydown = function(e){
+            e = e || window.event;
+            var key = e.which || e.key;
+            if(key===13){
+                loadRandomSketch();
+            }
+        }
+    </script>
 </body>
 </html>
