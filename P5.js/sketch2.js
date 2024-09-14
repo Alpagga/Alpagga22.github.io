@@ -1,6 +1,7 @@
 function sketch2(p) {
 
   let astronaut;
+  let background = [0, 250]
 
   //Source: 
   //https://nasa3d.arc.nasa.gov/detail/astronaut
@@ -12,13 +13,12 @@ function sketch2(p) {
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
     p.angleMode(p.DEGREES);
-    p.background(200);
-    p.line(200, 200, 100, 100);
 
     // Use a normal material, which uses color to illustrate
     // what direction each face of the geometry is pointing
     p.normalMaterial();
 
+    color = p.random(background)
   };
 
   p.windowResized = function() {
@@ -26,64 +26,65 @@ function sketch2(p) {
 };
 
   p.draw = function() {
-    p.background(250);
+    p.background(color);
 
     // Plane
     p.push();
-    p.translate(-250, -100, 0);
+    p.translate(-p.windowWidth*0.3, -200, 0);
     p.rotateWithFrameCount();
-    p.plane(70);
+    p.plane(140);
     p.pop();
   
     // Box
     p.push();
-    p.translate(-75, -100, 0);
+    p.translate(-p.windowWidth*0.1, -200, 0);
     p.rotateWithFrameCount();
-    p.box(70, 70, 70);
+    p.box(140, 140, 140);
     p.pop();
   
     // Cylinder
     p.push();
-    p.translate(100, -100, 0);
+    p.translate(p.windowWidth*0.1, -200, 0);
     p.rotateWithFrameCount();
-    p.cylinder(70, 70);
+    p.cylinder(140, 140);
     p.pop();
   
     // Cone
     p.push();
-    p.translate(275, -100, 0);
+    p.translate(p.windowWidth*0.3, -200, 0);
     p.rotateWithFrameCount();
-    p.cone(50, 70);
+    p.cone(100, 140);
     p.pop();
   
     // Torus
     p.push();
-    p.translate(-250, 100, 0);
+    p.translate(-p.windowWidth*0.3, 200, 0);
     p.rotateWithFrameCount();
-    p.torus(50, 20);
+    p.torus(100, 40);
     p.pop();
   
     // Sphere
     p.push();
-    p.translate(-75, 100, 0);
+    p.translate(-p.windowWidth*0.1, 200, 0);
     p.rotateWithFrameCount();
-  
+
     // Show black stroke to help visualize movement
     p.stroke(0);
-    p.sphere(50);
+    p.sphere(100);
     p.pop();
   
     // Ellipsoid
     p.push();
-    p.translate(100, 100, 0);
+    p.translate(p.windowWidth*0.1, 200, 0);
     p.rotateWithFrameCount();
-    p.ellipsoid(20, 40, 40);
+    p.ellipsoid(40, 80, 80);
     p.pop();
 
     // Astronaut
     p.push();
-    p.translate(275, 100, 0);
+    p.translate(p.windowWidth*0.3, 200, 0);
     p.rotateWithFrameCount();
+    p.scale(2)
 
     // Extra rotation to start model in upright position
     p.rotateZ(180);
