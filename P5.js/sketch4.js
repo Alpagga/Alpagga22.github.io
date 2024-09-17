@@ -17,7 +17,7 @@ function sketch4(p) {
 
     p.preload = function() {
         let randomGif = p.random(gifFiles)
-        gif = p.createImg(randomGif);
+        gif = p.createImg(randomGif, "gif");
         gif.position(0,0);
         gif.size(p.windowWidth,p.windowHeight);
       }
