@@ -1,7 +1,10 @@
 function sketch4(p) {
 
     let gif;
-    let number_of_gifs = 2;
+    let gifFiles = [
+        '/Assets/Gifs/1.gif', 
+        '/Assets/Gifs/2.gif',
+    ];
 
     p.setup = function() {
         p.createCanvas(p.windowWidth, p.windowHeight);   
@@ -13,8 +16,8 @@ function sketch4(p) {
     };
 
     p.preload = function() {
-
-        gif = p.createImg('../Assets/Gifs/2.gif');
+        let randomGif = p.random(gifFiles)
+        gif = p.createImg(randomGif);
         gif.position(0,0);
         gif.size(p.windowWidth,p.windowHeight);
       }
