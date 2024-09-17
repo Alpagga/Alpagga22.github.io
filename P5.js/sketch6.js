@@ -25,7 +25,7 @@ function sketch6(p) {
     };
 
     p.draw = function() {
-        p.background(30)
+        p.background(0)
         p.noFill()
         p.stroke(255)
         p.strokeWeight(3)
@@ -38,12 +38,12 @@ function sketch6(p) {
 
         p.rotateX(50)
     
-        for (var n = 0; n < 25; n++) {
+        for (var n = 0; n < 20; n++) {
             p.push()
             p.beginShape()
             for (var i = 0; i < 360; i += 3) {
     
-                var rad = n * p.windowHeight/25
+                var rad = n * p.windowHeight/20
                 var x = rad * p.cos(i);
                 var y = rad * p.sin(i);
                 var z = p.map(p.cos(p.frameCount * 3 + n * 10), 0, 1, -50, 50)
