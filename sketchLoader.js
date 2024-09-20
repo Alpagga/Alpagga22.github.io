@@ -1,7 +1,7 @@
 // List of p5.js sketch files
 const sketches = [
-    "P5.js/sketch1.js",
-    "P5.js/sketch2.js",
+    //"P5.js/sketch1.js",
+    //"P5.js/sketch2.js",
     "P5.js/sketch3.js",
     "P5.js/sketch4.js",
     "P5.js/sketch5.js",

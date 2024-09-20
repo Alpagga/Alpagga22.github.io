@@ -7,7 +7,7 @@ function sketch2(p) {
   //https://nasa3d.arc.nasa.gov/detail/astronaut
   //https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models
   p.preload = function(){
-    astronaut = p.loadModel('../Assets/3D_Models/Astronaut/astronaut.obj');
+    astronaut = p.loadModel('./Assets/3D_Models/Astronaut/astronaut.obj');
   }
 
   p.setup = function() {

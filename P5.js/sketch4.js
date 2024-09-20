@@ -2,8 +2,8 @@ function sketch4(p) {
 
     let gif;
     let gifFiles = [
-        '/Assets/Gifs/1.gif', 
-        '/Assets/Gifs/2.gif',
+        './Assets/Gifs/1.gif', 
+        './Assets/Gifs/2.gif',
     ];
 
     p.setup = function() {
