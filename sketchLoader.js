@@ -14,9 +14,12 @@ const sketches = [
     "P5.js/sketch12.js",
     "P5.js/sketch13.js",
     "P5.js/sketch14.js",
+    "P5.js/sketch15.js",
+    "P5.js/sketch16.js",
+    "P5.js/sketch17.js",
 ];
 
-const sketchess = ["P5.js/sketch14.js"];
+const sketchess = ["P5.js/sketch17.js"];
 
 // Variable to keep track of the current p5 instance
 let currentP5Instance = null;
