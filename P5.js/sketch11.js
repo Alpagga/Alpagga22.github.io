@@ -1,4 +1,4 @@
-function sketch10(p) {
+function sketch11(p) {
 
     let r = p.windowHeight*0.45; 
     let waves = []; let num = p.int(p.random(4,12)); 
@@ -75,4 +75,4 @@ function sketch10(p) {
 }
 
 // Create and return a new p5 instance
-currentP5Instance = new p5(sketch10);
+currentP5Instance = new p5(sketch11);
