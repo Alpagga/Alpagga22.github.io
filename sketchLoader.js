@@ -2,7 +2,7 @@
 const sketches = [
     //"P5.js/sketch1.js", Not that impressive
     //"P5.js/sketch2.js", .OBJ not working on MAC
-    //"P5.js/sketch3.js", GIF
+    //"P5.js/sketch3.js",
     "P5.js/sketch4.js",
     //"P5.js/sketch5.js", GAME of Life
     "P5.js/sketch6.js",
@@ -53,10 +53,12 @@ function loadRandomSketch() {
     document.body.appendChild(script);
 }
 
-// Function to switch the current sketch when button is clicked
-function switchSketch() {
-    loadRandomSketch();  // Load a new random sketch and remove the previous one
+
+function callFunction() {
+    loadRandomSketch();
 }
+
+setInterval(callFunction, 100000);
 
 // Initialize when the DOM content is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
