@@ -2,7 +2,7 @@ function sketch1(p) {
 
     let sizes = [];
 
-    let size = p.random(70,120);
+    let size = p.random(50,120);
     
     let cols; 
     let rows; 
@@ -17,10 +17,8 @@ function sketch1(p) {
     let randomG = p.random(255);
     let randomB = p.random(255);
 
-    let randomXtop = p.random(15, 45);
-    let randomXbottom = p.random(-45, -15);
-    let topOrBottom = p.random(1);
-    let randomY = p.random(-50,50);
+    let rotateX = 40;
+    let rotateY = 0;
 
     p.setup = function() {
         p.createCanvas(p.windowWidth , p.windowHeight, p.WEBGL);    
@@ -30,8 +28,6 @@ function sketch1(p) {
 
         cols = p.windowWidth/size;
         rows = cols
-
-        p.print(randomXtop)
     };
 
     p.windowResized = function() {
@@ -41,36 +37,32 @@ function sketch1(p) {
     p.draw = function() {
         p.background(0);
   
-        if(topOrBottom>0.5){
-            p.rotateX(randomXtop);
-        }else{
-            p.rotateX(randomXbottom);
-        }
 
-        p.rotateY(randomY);
+        p.rotateX(rotateX);
+        p.rotateY(rotateY);
         
         xoff = 0;
         for (let i=0; i<cols; i++){
             sizes[i] = [];
             yoff = 0;
-            for (let j=0; j<rows; j++){
-            sizes[i][j] = p.map(p.noise(xoff, yoff, zoff), 0, 1, 0, 100);
-            yoff += inc;
-            
-            if(colorMode>0.5){
-                let r = p.noise(zoff) * 255;
-                let g = p.noise(zoff+15) * 255;
-                let b = p.noise(zoff+30) * 255;
-                p.fill(r, g, b);
-            }else{
-                p.fill(randomR, randomG, randomB);
+                for (let j=0; j<rows; j++){
+                sizes[i][j] = p.map(p.noise(xoff, yoff, zoff), 0, 1, 0, 100);
+                yoff += inc;
+                
+                if(colorMode>0.5){
+                    let r = p.noise(zoff) * 255;
+                    let g = p.noise(zoff+15) * 255;
+                    let b = p.noise(zoff+30) * 255;
+                    p.fill(r, g, b);
+                }else{
+                    p.fill(randomR, randomG, randomB);
             }
 
 
             p.push();
-            p.translate(i*size - p.windowWidth/2 , sizes[i][j], j*size - 100);
+            p.translate(i*size - p.windowWidth/2 , sizes[i][j]-p.windowHeight, j*size - p.windowWidth*1.3);
             // You can also put the second argument 100 with sizes[i][j] in the box() function instead of the translate function 
-            p.box(size, 100, size); 
+            p.box(size, 200, size); 
             p.pop();
             
 

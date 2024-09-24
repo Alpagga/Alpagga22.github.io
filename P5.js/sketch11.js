@@ -8,7 +8,7 @@ function sketch10(p) {
     let randomG = p.random(255);
     let randomB = p.random(255);
 
-    let modeAmplitude = p.int(p.random(1,4));
+    let modeAmplitude = p.random(1);
     let sizeEllipse = p.random(1,20)
 
     p.setup = function() {
@@ -50,28 +50,19 @@ function sketch10(p) {
             p.fill(randomR, randomG, randomB);
             for (let i=0; i<=360; i++) {
                 
-                if(modeAmplitude == 1 ){ //ellipse
+                if(modeAmplitude > 0.5 ){ //ellipse
                     let x = p.map(i, 0, 360, -r*2, r*2);
                     let amplitude = r * p.sqrt(1- p.pow((x/r/1.8), 2));
                     let y = amplitude*p.sin((i + this.angle + this.shift*this.movement)*this.period);
                     p.ellipse(x, y, sizeEllipse, sizeEllipse);
                     p.noStroke();
-                }
-                if(modeAmplitude == 2 ){ //circle
+                }else{ //circle
                     let x = p.map(i, 0, 360, -r*2, r);
                     let amplitude = r * p.sqrt(1- p.pow((x/r), 2));
                     let y = amplitude*p.sin((i + this.angle + this.shift*this.movement)*this.period);
                     p.ellipse(x, y, sizeEllipse, sizeEllipse);
                     p.noStroke();
                 }
-                if(modeAmplitude == 3 ){ //sin
-                    let x = p.map(i, 0, 360, -r*2, r*2);
-                    let amplitude = r * p.sqrt(1- p.pow((x/r/7), 2));
-                    let y = amplitude*p.sin((i + this.angle + this.shift*this.movement)*this.period);
-                    p.ellipse(x, y, sizeEllipse, sizeEllipse);
-                    p.noStroke();
-                }
-
             }
           
         }

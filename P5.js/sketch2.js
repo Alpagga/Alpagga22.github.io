@@ -1,13 +1,12 @@
 function sketch2(p) {
 
   let astronaut;
-  let background = [0, 250]
 
   //Source: 
   //https://nasa3d.arc.nasa.gov/detail/astronaut
   //https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models
   p.preload = function(){
-    astronaut = p.loadModel('./Assets/3D_Models/Astronaut/astronaut.obj');
+    astronaut = p.loadModel('/RandomProcessing/Assets/3D_Models/Astronaut/Astronaut.obj');
   }
 
   p.setup = function() {
@@ -17,8 +16,6 @@ function sketch2(p) {
     // Use a normal material, which uses color to illustrate
     // what direction each face of the geometry is pointing
     p.normalMaterial();
-
-    color = p.random(background)
   };
 
   p.windowResized = function() {
@@ -26,7 +23,7 @@ function sketch2(p) {
 };
 
   p.draw = function() {
-    p.background(color);
+    p.background(0);
 
     // Plane
     p.push();

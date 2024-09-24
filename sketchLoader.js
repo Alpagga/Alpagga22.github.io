@@ -1,10 +1,10 @@
 // List of p5.js sketch files
-const sketches = [
-    //"P5.js/sketch1.js",
-    //"P5.js/sketch2.js",
+const sketchess = [
+    //"P5.js/sketch1.js", Not that impressive
+    //"P5.js/sketch2.js", .OBJ not working on MAC
     "P5.js/sketch3.js",
     "P5.js/sketch4.js",
-    "P5.js/sketch5.js",
+    //"P5.js/sketch5.js", GAME of Life
     "P5.js/sketch6.js",
     "P5.js/sketch7.js",
     "P5.js/sketch8.js",
@@ -13,7 +13,7 @@ const sketches = [
     "P5.js/sketch11.js"
 ];
 
-const sketchess = ["P5.js/sketch11.js"];
+const sketches = ["P5.js/sketch11.js"];
 
 // Variable to keep track of the current p5 instance
 let currentP5Instance = null;

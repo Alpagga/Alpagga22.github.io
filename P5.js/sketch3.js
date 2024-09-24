@@ -15,7 +15,7 @@ function sketch3(p) {
   };
 
   p.draw = function() {
-    p.background(255);
+    p.background(0);
     p.noStroke();
     p.scale(1.5);
   

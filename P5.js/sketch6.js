@@ -2,9 +2,10 @@ function sketch6(p) {
 
     var start = 0;
 
-    var negPostitionY = p.random(-0.7, -0.01)
-    var posPostitionY = p.random(0.01, 0.7)
-    var choiceY = p.random(1);
+    var negPostitionY = 0;
+    var posPostitionY = 0;
+
+    var Wave = p.random(10,35);
 
     p.setup = function() {
         p.createCanvas(p.windowWidth, p.windowHeight, p.WEBGL);
@@ -15,9 +16,6 @@ function sketch6(p) {
 
         p.noiseDetail(1)
 
-        p.print(negPostitionY);
-        p.print(posPostitionY);
-        p.print(choiceY);
     };
 
     p.windowResized = function() {
@@ -29,12 +27,8 @@ function sketch6(p) {
         p.noFill()
         p.stroke(255)
         p.strokeWeight(3)
-
-        if(choiceY>0.5){
-            p.translate(0, p.windowHeight*negPostitionY, 0);
-        }else{
-            p.translate(0, p.windowHeight*posPostitionY, 0)
-        }
+    
+        p.translate(0, p.windowHeight*negPostitionY, 0);
 
         p.rotateX(50)
     
@@ -43,10 +37,12 @@ function sketch6(p) {
             p.beginShape()
             for (var i = 0; i < 360; i += 3) {
     
-                var rad = n * p.windowHeight/20
+                var rad = n * p.windowHeight/33; //controles the size
                 var x = rad * p.cos(i);
-                var y = rad * p.sin(i);
-                var z = p.map(p.cos(p.frameCount * 3 + n * 10), 0, 1, -50, 50)
+                var y = rad * p.sin(i)-200;
+
+                //Wavy
+                var z = p.map(p.cos(p.frameCount * 3 + n * Wave), 0, 1, -50, 50)
     
                 var g = p.map(z, -100, 100, 150, 200) + p.sin(p.frameCount * 2) * 50
                 var b = p.map(n, 0, 500, 100, 150) + p.cos(p.frameCount / 2) * 100
